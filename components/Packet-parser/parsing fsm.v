@@ -11,7 +11,7 @@ Description: Tracking signals to step through the packet structure
 
 module l2_parser_fsm_engine (
     input  wire        clk,
-    input  wire        rst_n,           // Active high synchronous reset
+    input  wire        rst,           // Active high synchronous reset
 
     // Upstream Control Signals (From FIFO)
     input  wire        fifo_sop,
@@ -115,7 +115,7 @@ module l2_parser_fsm_engine (
     // 2. Sequential State and Counter Management
 
     always @(posedge clk) begin
-        if (rst_n) begin
+        if (rst) begin
             current_state   <= STATE_IDLE;
             byte_cnt        <= 4'd0;
             runt_error      <= 1'b0;
