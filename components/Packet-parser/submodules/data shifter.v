@@ -12,7 +12,7 @@ module data_shifter(
 
     input wire        clk,
     input wire        rst,           // Active high synchronous reset
-    input wire        runt_error       // Strobe indicating a truncated packet needs to be dropped
+    input wire        runt_error,       // Strobe indicating a truncated packet needs to be dropped
 
     // Look-ahead Data Interface
     input wire [7:0]  fifo_data, 
