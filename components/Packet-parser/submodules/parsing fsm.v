@@ -26,7 +26,6 @@ module l2_parser_fsm_engine (
 
     // Control Outputs to Component B (Shifter Array)
     output reg  [2:0]  current_state,
-    output reg  [3:0]  byte_cnt,
     output reg         shift_en,        // Tells shifters to step forward
     // output reg         latch_metadata,  // Strobe to snapshot finalized shifters to output ports
     
@@ -45,7 +44,8 @@ module l2_parser_fsm_engine (
                STATE_PAYLOAD    = 3'd5;
 
     reg [2:0] next_state;
-    reg [7:0] type_byte_0,     // To inspect accumulated Type[15:8]
+    reg [7:0] type_byte_0;     // To inspect accumulated Type[15:8]
+    reg [3:0] byte_cnt;
 
 
     // Master Handshake Interlock
