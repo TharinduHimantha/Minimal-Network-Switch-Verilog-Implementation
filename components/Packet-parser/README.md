@@ -10,6 +10,13 @@ The following structural schematic shows exactly how the control, data storage, 
 
 ![Component Schematic Diagram](diagrams/diagram.png)
 
+
+---
+
+## Architectural Breakdown
+
+The framework splits tracking, storage, and signal manipulation across strict logic boundaries:
+
 ```text
 =======================================================================================================================
                                             TOP-LEVEL WRAPPER (L2_PACKET_PARSER)
@@ -84,11 +91,6 @@ The following structural schematic shows exactly how the control, data storage, 
 ```
 
 
----
-
-## Architectural Breakdown
-
-The framework splits tracking, storage, and signal manipulation across strict logic boundaries:
 
 * **Component A (`l2_parser_fsm_engine`):** Operates as the brain. Tracks running byte lengths, implements dynamic branching for 802.1Q tags using combinational look-ahead decoding, and processes stream synchronization flags.
 * **Component B (`data_shifter`):** Handles raw data buffering. It shifts serial stream data bytes into localized target shifters on active enable signals, holding them safe until they are snapshotted into stable, registered outputs when processing completes.
