@@ -8,6 +8,8 @@ A high-performance, modular, zero-latency cut-through Layer 2 Ethernet Packet Pa
 
 The following structural schematic shows exactly how the control, data storage, and output gating highways cross-connect internally inside the top-level wrapper module:
 
+![Component Schematic Diagram](diagrams/diagram.png)
+
 ```text
 =======================================================================================================================
                                             TOP-LEVEL WRAPPER (L2_PACKET_PARSER)
